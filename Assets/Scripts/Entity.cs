@@ -77,7 +77,7 @@ public class Entity : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        this.entityStats.HitPoints = this.entityStats.MaxHP;
     }
 
     // Update is called once per frame
@@ -95,8 +95,6 @@ public class Entity : MonoBehaviour
     //returns true if a new target is needed and false if this entity is still alive.
     public bool TakeDamage(int damage)
     {
-        
-
         if(this.entityStats.HitPoints>damage)
         {
             this.entityStats.HitPoints -= damage;
@@ -111,6 +109,7 @@ public class Entity : MonoBehaviour
 
     void Die()
     {
+        Debug.Log("Die");
         Destroy(this.gameObject);
         /* overridden for now
         AI.curAIState = EntityAI.AIState.Dying;

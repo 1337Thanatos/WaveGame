@@ -134,8 +134,7 @@ public class EntityAI : MonoBehaviour
                     else
                     {
                         meshAgent.isStopped = true;
-                        animator.Play(AttackAnim);
-                        CurrentTarget.GetComponent<Entity>().TakeDamage(this.parentEntity.entityStats.AttackDamage);
+                        animator.Play(AttackAnim);                        
                     }
                 }
                 else
@@ -144,6 +143,11 @@ public class EntityAI : MonoBehaviour
                 }
                 break;
         }
+    }
+
+    public void DealDamage()
+    {
+        CurrentTarget.GetComponent<Entity>().TakeDamage(this.parentEntity.entityStats.AttackDamage);
     }
 
     public void FindTarget()

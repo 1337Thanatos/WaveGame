@@ -802,7 +802,7 @@ MonoBehaviour:
     aISeekType: 0
     movementSpeed: 0
     flightHeight: 0
-    MaxHP: 0
+    MaxHP: 50
     HitPoints: 10
     AttackDamage: 0
     DetectionRange: 0
@@ -876,6 +876,11 @@ PrefabInstance:
         type: 3}
       propertyPath: entityStats.AttackRange
       value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4821105431906255165, guid: 01a30c28cceed7345b359cbeeaa2e1f6,
+        type: 3}
+      propertyPath: entityStats.AttackDamage
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 4821105431906255165, guid: 01a30c28cceed7345b359cbeeaa2e1f6,
         type: 3}
