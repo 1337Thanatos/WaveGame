@@ -49,8 +49,8 @@ public class Entity : MonoBehaviour
 
         [Tooltip("Is this a ranged or melee entity?")]
         public bool isRanged;
-        [Tooltip("ONLY USE IF RANGED, DOES NOTHING OTHERWISE What is the attack range of the entity?")]
-        public int AttackRange;
+        [Tooltip("What is the attack range of the entity?")]
+        public float AttackRange;
         [Tooltip("At runtime used to track the current waypoint the entity will try to reach")]
         public Transform CurrentWaypoint;
         [Tooltip("What layer of objects is this entity looking for?")]
@@ -95,6 +95,8 @@ public class Entity : MonoBehaviour
     //returns true if a new target is needed and false if this entity is still alive.
     public bool TakeDamage(int damage)
     {
+        
+
         if(this.entityStats.HitPoints>damage)
         {
             this.entityStats.HitPoints -= damage;

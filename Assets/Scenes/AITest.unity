@@ -874,13 +874,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4821105431906255165, guid: 01a30c28cceed7345b359cbeeaa2e1f6,
         type: 3}
+      propertyPath: entityStats.AttackRange
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4821105431906255165, guid: 01a30c28cceed7345b359cbeeaa2e1f6,
+        type: 3}
       propertyPath: entityStats.CurrentTarget
       value: 
       objectReference: {fileID: 0}
     - target: {fileID: 4821105431906255165, guid: 01a30c28cceed7345b359cbeeaa2e1f6,
         type: 3}
       propertyPath: entityStats.DetectionRange
-      value: 9.01
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 4821105431906255165, guid: 01a30c28cceed7345b359cbeeaa2e1f6,
         type: 3}

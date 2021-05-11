@@ -124,14 +124,16 @@ public class EntityAI : MonoBehaviour
                 {
                     targetPosition = CurrentTarget.transform.position;
 
-                    if (meshAgent.destination != targetPosition)
+                    if ( Vector3.Distance(this.gameObject.transform.position , targetPosition) > parentEntity.entityStats.AttackRange)
                     {
+                        meshAgent.isStopped = false;
                         meshAgent.SetDestination(targetPosition);
 
                         animator.SetBool("Walk Forward", true);
                     }
                     else
                     {
+                        meshAgent.isStopped = true;
                         animator.Play(AttackAnim);
                         CurrentTarget.GetComponent<Entity>().TakeDamage(this.parentEntity.entityStats.AttackDamage);
                     }
