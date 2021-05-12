@@ -683,7 +683,7 @@ GameObject:
   - component: {fileID: 1875919742}
   - component: {fileID: 1875919748}
   m_Layer: 3
-  m_Name: Cube
+  m_Name: DummyTargetCube
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
