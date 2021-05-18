@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -37,6 +38,9 @@ public class EntityAI : MonoBehaviour
 
     [Tooltip("Current target of the entity")]
     public GameObject CurrentTarget;
+
+    [Tooltip("Empty gameobject used to denote the approximate location of the entity's eyes to avoid the raycast being blocked")]
+    public GameObject EyesPos;
 
     [Tooltip("Holds current destination of this entity")]
     public Vector3 targetPosition;
@@ -150,14 +154,29 @@ public class EntityAI : MonoBehaviour
         CurrentTarget.GetComponent<Entity>().TakeDamage(this.parentEntity.entityStats.AttackDamage);
     }
 
+    /*
+    void OnDrawGizmosSelected()
+    {
+        // Draw a yellow sphere at the transform's position
+        Gizmos.color = Color.yellow;
+        Gizmos.DrawSphere(transform.position, parentEntity.entityStats.DetectionRange);
+    }
+    */
+
     public void FindTarget()
     {
-        Collider[] targetsInViewRadius = Physics.OverlapSphere(transform.position, parentEntity.entityStats.DetectionRange, parentEntity.entityStats.targetMask);
+        Collider[] targetsInViewRadius = Physics.OverlapSphere(EyesPos.transform.position, parentEntity.entityStats.DetectionRange, parentEntity.entityStats.targetMask);
+
+        Debug.Log("parentEntity.entityStats.DetectionRange : " + parentEntity.entityStats.DetectionRange + " EyesPos.transform.position " + EyesPos.transform.position.ToString());
+        Debug.Log("Test? targetsInViewRadius.Length " + targetsInViewRadius.Length + " parentEntity.entityStats.targetMask " + Convert.ToString(parentEntity.entityStats.targetMask, 2).PadLeft(32, '0'));
 
         for (int i = 0; i < targetsInViewRadius.Length; i++)
         {
+
             if (!parentEntity.entityStats.ignoreLOS)
             {
+                
+
                 Transform target = targetsInViewRadius[i].transform;
 
                 Vector3 dirToTarget = (target.position - transform.position).normalized;
